@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FunctionalProgrammingInCSharp.ExampleClasses;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static FunctionalProgrammingInCSharp.FunctionalLibrary;
+using static FunctionalProgrammingInCSharp.Utils;
 
 namespace FunctionalProgrammingInCSharp
 {
@@ -10,6 +10,8 @@ namespace FunctionalProgrammingInCSharp
     {
         static void Main(string[] args)
         {
+
+            Console.ReadLine();
         }
     }
 }
