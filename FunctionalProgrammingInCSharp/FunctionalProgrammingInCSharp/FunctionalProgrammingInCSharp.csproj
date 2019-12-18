@@ -45,9 +45,11 @@
   <ItemGroup>
     <Compile Include="ExampleClasses\Disposable.cs" />
     <Compile Include="Excersises1\FunctionalLibrary.cs" />
+    <Compile Include="Excersises2\BmiConsole.cs" />
     <Compile Include="FunctionalLibrary.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

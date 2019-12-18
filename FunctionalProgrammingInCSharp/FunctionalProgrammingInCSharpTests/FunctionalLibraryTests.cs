@@ -9,7 +9,6 @@ namespace FunctionalProgrammingInCSharpTests
     [TestFixture]
     public class FunctionalLibraryTests
     {
-
         [Test]
         public void Negate_ShallNegateThePredicate()
         {
