@@ -5,6 +5,7 @@ using Moq;
 
 namespace FunctionalProgrammingInCSharpTests
 {
+
     [TestFixture]
     public class BmiConsoleTests
     {

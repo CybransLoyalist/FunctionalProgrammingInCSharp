@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unit = System.ValueTuple;
 
 namespace FunctionalProgrammingInCSharp
 {
@@ -11,6 +12,16 @@ namespace FunctionalProgrammingInCSharp
             {
                 return functionOnDisposable(t);
             }
+        }
+
+        public static Func<Unit> ToFunc(this Action action)
+        {
+            return () => { action(); return new Unit(); };
+        }
+
+        public static Func<T, Unit> ToFunc<T>(this Action<T> action)
+        {
+            return (x) => { action(x); return new Unit(); };
         }
     }
 }

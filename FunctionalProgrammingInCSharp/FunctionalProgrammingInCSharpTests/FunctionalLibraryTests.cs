@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using static FunctionalProgrammingInCSharp.FunctionalLibrary;
+using Unit = System.ValueTuple;
 
 namespace FunctionalProgrammingInCSharpTests
 {
@@ -44,6 +45,23 @@ namespace FunctionalProgrammingInCSharpTests
                 Using(() => new Disposable(loggerMock.Object), d => d.DoBeforeDisposing()));
 
             loggerMock.Verify(a => a.Log("I'm disposing myself. Good bye."));
+        }
+
+        [Test]
+        public void ToFunc_ShallCreateFuncFromAction()
+        {
+            var actionMock = new Mock<Action>();
+            Assert.AreEqual(new Unit(), actionMock.Object.ToFunc()());
+            actionMock.Verify(a => a());
+        }
+
+        [Test]
+        public void ToFunc_ShallCreateFuncFromActionWithOneParameter()
+        {
+            var actionMock = new Mock<Action<int>>();
+            int param = 5;
+            Assert.AreEqual(new Unit(), actionMock.Object.ToFunc()(param));
+            actionMock.Verify(a => a(param));
         }
     }
 }
