@@ -7,6 +7,7 @@ using Unit = System.ValueTuple;
 
 namespace FunctionalProgrammingInCSharpTests
 {
+
     [TestFixture]
     public class FunctionalLibraryTests
     {
@@ -16,23 +17,6 @@ namespace FunctionalProgrammingInCSharpTests
             Func<int, bool> predicate = x => x % 2 == 0;
             Assert.True(predicate(4));
             Assert.False(predicate.Negate()(4));
-        }
-
-        [Test]
-        public void SortWithCopy_ShallNotModifyExistingCollection()
-        {
-            var list = new int[] { 1, 5, 2 };
-            CollectionAssert.AreEqual(new int[] { 1, 2, 5 }, list.SortWithCopy());
-            CollectionAssert.AreEqual(new int[] { 1, 5, 2 }, list);
-        }
-
-        [Test]
-        public void SortWithCopyWithComparison_ShallNotModifyExistingCollection()
-        {
-            var list = new int[] { 1, 5, 2, 4 };
-            //if we do Comparison of a and b and we get -1, it mean a is smaller, so it should come first in collection
-            CollectionAssert.AreEqual(new int[] { 4, 2, 1, 5 }, list.SortWithCopy((a,b) => a % 2 == 0 ? -1 : 1 )); 
-            CollectionAssert.AreEqual(new int[] { 1, 5, 2, 4 }, list);
         }
 
         [Test]

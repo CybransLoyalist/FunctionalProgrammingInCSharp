@@ -1,5 +1,6 @@
 ﻿using FunctionalProgrammingInCSharp.Option;
 using System;
+using System.Collections.Generic;
 
 namespace FunctionalProgrammingInCSharp
 {
@@ -50,6 +51,14 @@ namespace FunctionalProgrammingInCSharp
         {
             return _isNone && other._isNone ||
                  (_isSome && other._isSome && _value.Equals(other._value));
+        }
+        
+        public IEnumerable<T> AsEnumerable()
+        {
+            if (_isSome)
+            {
+                yield return _value;
+            }
         }
     }
 

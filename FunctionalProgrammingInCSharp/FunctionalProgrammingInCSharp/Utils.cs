@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using static FunctionalProgrammingInCSharp.OptionCreators;
 
 namespace FunctionalProgrammingInCSharp
 {
@@ -13,5 +14,8 @@ namespace FunctionalProgrammingInCSharp
         }
 
         public static string ToString<T>(this IEnumerable<T> enumerable) => string.Join(",", enumerable);
+
+        public static Option<int> ToInt(this string s) 
+            => int.TryParse(s, out int result) ? Some(result) : None;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FunctionalProgrammingInCSharp.ExampleClasses;
 using FunctionalProgrammingInCSharp.Excersises2;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using static FunctionalProgrammingInCSharp.FunctionalLibrary;
 using static FunctionalProgrammingInCSharp.OptionCreators;
@@ -12,8 +13,7 @@ namespace FunctionalProgrammingInCSharp
     {
         static void Main(string[] args)
         {
-            var firstName = None;
-            var middleName = Some("John");
+
             Console.ReadLine();
         }
     }
