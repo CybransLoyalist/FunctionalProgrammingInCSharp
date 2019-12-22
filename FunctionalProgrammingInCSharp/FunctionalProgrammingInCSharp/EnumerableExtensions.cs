@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 
 namespace FunctionalProgrammingInCSharp
 {
-    public static class EnumerableExtensions
+    public static partial class EnumerableExtensions
     {
         public static IEnumerable<T> SortWithCopy<T>(this IEnumerable<T> input)
         {

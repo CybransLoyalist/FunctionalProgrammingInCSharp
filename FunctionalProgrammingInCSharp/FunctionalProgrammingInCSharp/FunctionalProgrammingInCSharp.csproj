@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excersises5\AccountState.cs" />
+    <Compile Include="Excersises5\EnumerableExtensions.cs" />
+    <Compile Include="Excersises5\FunctionalLibrary.cs" />
     <Compile Include="ExampleClasses\Age.cs" />
     <Compile Include="ExampleClasses\Disposable.cs" />
     <Compile Include="EnumerableExtensions.cs" />

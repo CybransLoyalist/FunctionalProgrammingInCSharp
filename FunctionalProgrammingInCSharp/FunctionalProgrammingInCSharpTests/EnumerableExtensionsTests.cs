@@ -66,5 +66,26 @@ namespace FunctionalProgrammingInCSharpTests
             var averageAge = withoutNones.Select(a => a.NumberOfYears).Average();
             Assert.AreEqual(70, averageAge);
         }
+
+        [Test]
+        public void MyTake_ShallWorkProperly()
+        {
+            var input = Enumerable.Range(1, 10);
+            CollectionAssert.AreEqual(Enumerable.Range(1, 5), input.MyTake(5));
+        }
+
+        [Test]
+        public void MyOrderBy_ShallWorkProperly()
+        {
+            var input = Enumerable.Range(1, 10);
+            CollectionAssert.AreEqual(Enumerable.Range(1, 10).Reverse(), input.MyOrderBy((a, b) => a > b ? -1 : 1));
+        }
+
+        [Test]
+        public void MyAverage_ShallWorkProperly()
+        {
+            var input = Enumerable.Range(1, 10);
+            Assert.AreEqual(5, input.MyAverage());
+        }
     }
 }

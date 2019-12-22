@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfigTests.cs" />
+    <Compile Include="BankAccountTests.cs" />
     <Compile Include="BmiConsoleTests.cs" />
     <Compile Include="DictionaryExtensionsTests.cs" />
     <Compile Include="EmailTests.cs" />

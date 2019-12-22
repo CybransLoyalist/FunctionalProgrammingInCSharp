@@ -47,5 +47,16 @@ namespace FunctionalProgrammingInCSharpTests
             Assert.AreEqual(new Unit(), actionMock.Object.ToFunc()(param));
             actionMock.Verify(a => a(param));
         }
+
+        [Test]
+        public void Compose_ShallWorkProperly()
+        {
+            Func<int, int> power = x => x * x;
+            Func<int, string> toStringAndAppendAbc = x => x.ToString() + "abc";
+            Func<string, string> toUpper = x => x.ToUpper();
+
+            var result = power.Compose(toStringAndAppendAbc).Compose(toUpper)(5);
+            Assert.AreEqual("25ABC", result);
+        }
     }
 }
