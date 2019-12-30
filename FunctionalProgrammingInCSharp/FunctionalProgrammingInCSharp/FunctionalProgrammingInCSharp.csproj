@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excersises5\AccountController.cs" />
     <Compile Include="Excersises5\AccountState.cs" />
     <Compile Include="Excersises5\EnumerableExtensions.cs" />
     <Compile Include="Excersises5\FunctionalLibrary.cs" />
@@ -73,6 +74,8 @@
     <Compile Include="Excersises3\Utils.cs" />
     <Compile Include="Excersises4\DictionaryExtensions.cs" />
     <Compile Include="Excersises4\SetExtensions.cs" />
+    <Compile Include="Excersises5\IRepository.cs" />
+    <Compile Include="Excersises5\IValidator.cs" />
     <Compile Include="FunctionalLibrary.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="OptionExtensions.cs" />

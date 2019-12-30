@@ -74,8 +74,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountControllerTests.cs" />
     <Compile Include="AppConfigTests.cs" />
-    <Compile Include="BankAccountTests.cs" />
+    <Compile Include="AccountStateTests.cs" />
     <Compile Include="BmiConsoleTests.cs" />
     <Compile Include="DictionaryExtensionsTests.cs" />
     <Compile Include="EmailTests.cs" />

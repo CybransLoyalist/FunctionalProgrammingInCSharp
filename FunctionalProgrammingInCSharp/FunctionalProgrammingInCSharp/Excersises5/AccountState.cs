@@ -20,6 +20,11 @@ namespace FunctionalProgrammingInCSharp
         {
             return Balance == other.Balance;
         }
+
+        public override int GetHashCode()
+        {
+            return 1573549379 + Balance.GetHashCode();
+        }
     }
 
     public static class Account
@@ -27,7 +32,7 @@ namespace FunctionalProgrammingInCSharp
         public static Option<AccountState> Debit(this AccountState accountState, decimal amount)
         {
             return accountState.Balance < amount ?
-                None : 
+                None :
                 Some(new AccountState(accountState.Balance - amount));
         }
     }

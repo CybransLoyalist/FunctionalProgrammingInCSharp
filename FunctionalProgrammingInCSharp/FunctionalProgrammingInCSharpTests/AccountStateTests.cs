@@ -5,7 +5,7 @@ using static FunctionalProgrammingInCSharp.OptionCreators;
 namespace FunctionalProgrammingInCSharpTests
 {
     [TestFixture]
-    public class BankAccountTests
+    public class AccountStateTests
     {
         [Test]
         public void DebitingWhenFundsAvailable_ShallGetTheNewAccountState_SmallerByAmount()
