@@ -79,8 +79,10 @@
     <Compile Include="AccountStateTests.cs" />
     <Compile Include="BmiConsoleTests.cs" />
     <Compile Include="DictionaryExtensionsTests.cs" />
+    <Compile Include="EitherTests.cs" />
     <Compile Include="EmailTests.cs" />
     <Compile Include="EnumerableExtensionsTests.cs" />
+    <Compile Include="FuncExtensionsTests.cs" />
     <Compile Include="FunctionalLibraryTests.cs" />
     <Compile Include="OptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

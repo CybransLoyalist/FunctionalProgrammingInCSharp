@@ -1,5 +1,6 @@
 ﻿using System;
 using static FunctionalProgrammingInCSharp.OptionCreators;
+using static FunctionalProgrammingInCSharp.EitherCreators;
 using Unit = System.ValueTuple;
 
 namespace FunctionalProgrammingInCSharp
@@ -25,6 +26,13 @@ namespace FunctionalProgrammingInCSharp
                 (some) => bind(some));
         }
 
+        public static Option<R> Bind<T, R, L>(this Option<T> option, Func<T, Either<L, R>> bind)
+        {
+            return option.Match(
+                () => None,
+                (some) => bind(some).ToOption());
+        }
+
         public static Option<R> MapWithBind<T, R>(this Option<T> option, Func<T, R> map)
         {
             return option.Bind(t => Some(map(t)));
@@ -34,5 +42,12 @@ namespace FunctionalProgrammingInCSharp
             => input.Match(
                 () => None,
                 (some) => predicate(some) ? input : None);
+
+        public static Either<L,T> ToEither<T,L>(this Option<T> input, L left)
+        {
+            return input.Match(
+                () => (Either<L, T>)Left(left),
+                s => Right(s));
+        }
     }
 }

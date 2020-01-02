@@ -4,9 +4,11 @@ using Moq;
 using NUnit.Framework;
 using System;
 using static FunctionalProgrammingInCSharp.OptionCreators;
+using static FunctionalProgrammingInCSharp.EitherCreators;
 
 namespace FunctionalProgrammingInCSharpTests
 {
+
     [TestFixture]
     public class OptionTests
     {
@@ -153,6 +155,44 @@ namespace FunctionalProgrammingInCSharpTests
         {
             Option<int> some = 5;
             CollectionAssert.AreEqual(new int[] { 5 }, some.AsEnumerable());
+        }
+
+        [Test]
+        public void ToEither_ShallSetLeftValue_IfNone()
+        {
+            Option<int> option = None;
+            var either = option.ToEither("lacking value");
+            Assert.False(either.IsRight);
+            Either<string, int> expectedResult = Left("lacking value");
+            Assert.AreEqual(expectedResult, either);
+        }
+
+        [Test]
+        public void ToEither_ShallSetRightValue_IfSome()
+        {
+            Option<int> option = Some(5);
+            var either = option.ToEither("lacking value");
+            Assert.True(either.IsRight);
+            Either<string, int> expectedResult = Right(5);
+            Assert.AreEqual(expectedResult, either);
+        }
+
+        [Test]
+        public void ShallBeAbleToBind_OptionReturningMethod_WithEitherReturning()
+        {
+            Func<int, Option<int>> func1 = i => Some(i);
+            Func<int, Option<int>> func2 = i => Some(i * 2);
+
+            var bound = Some(2).Bind(func1).Bind(func2);
+
+            Assert.AreEqual(Some(4), bound);
+
+            Func<int, Either<string, int>> func3EitherReturning = i => Right(i * 3);
+            var bound2 = Some(2).Bind(func1).Bind(func3EitherReturning);
+            Assert.AreEqual(Some(6), bound2);
+
+            var bound3 = Some(2).Bind(func3EitherReturning).Bind(func1);
+            Assert.AreEqual(Some(6), bound3);
         }
     }
 }
