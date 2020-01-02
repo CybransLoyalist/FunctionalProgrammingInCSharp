@@ -5,6 +5,7 @@ using static FunctionalProgrammingInCSharp.OptionCreators;
 
 namespace FunctionalProgrammingInCSharpTests
 {
+
     [TestFixture]
     public class AccountControllerTests
     {

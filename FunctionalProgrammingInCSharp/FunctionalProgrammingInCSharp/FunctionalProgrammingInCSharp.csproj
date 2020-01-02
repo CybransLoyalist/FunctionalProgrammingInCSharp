@@ -79,6 +79,10 @@
     <Compile Include="Excersises5\IValidator.cs" />
     <Compile Include="Excersises6\BookTransferController.cs" />
     <Compile Include="Excersises6\FuncExtensions.cs" />
+    <Compile Include="Excersises7\Log.cs" />
+    <Compile Include="Excersises7\Remainder.cs" />
+    <Compile Include="Excersises7\AggregateExcersises.cs" />
+    <Compile Include="Excersises7\PhoneNumber.cs" />
     <Compile Include="FunctionalLibrary.cs" />
     <Compile Include="Either.cs" />
     <Compile Include="Option.cs" />
