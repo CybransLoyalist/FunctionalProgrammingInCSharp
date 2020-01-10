@@ -2,6 +2,7 @@
 using static FunctionalProgrammingInCSharp.OptionCreators;
 using static FunctionalProgrammingInCSharp.EitherCreators;
 using Unit = System.ValueTuple;
+using FunctionalProgrammingInCSharp.Excersises6;
 
 namespace FunctionalProgrammingInCSharp
 {
@@ -12,6 +13,11 @@ namespace FunctionalProgrammingInCSharp
             return option.Match(
                 () => None,
                 (some) => Some(map(some)));
+        }
+
+        public static Option<Func<T2, R>> Map<T1, T2, R>(this Option<T1> option, Func<T1, T2, R> map)
+        {
+            return option.Map(map.Curry());
         }
 
         public static Option<Unit> ForEach<T>(this Option<T> option, Action<T> action)
@@ -36,6 +42,11 @@ namespace FunctionalProgrammingInCSharp
         public static Option<R> MapWithBind<T, R>(this Option<T> option, Func<T, R> map)
         {
             return option.Bind(t => Some(map(t)));
+        }
+
+        public static Option<R> MapWithApply<T, R>(this Option<T> option, Func<T, R> map)
+        {
+            return Some(map).Apply(option);
         }
 
         public static Option<T> Where<T>(this Option<T> input, Func<T, bool> predicate)

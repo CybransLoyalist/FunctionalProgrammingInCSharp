@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EitherExtensions.cs" />
+    <Compile Include="Exceptional.cs" />
+    <Compile Include="ExceptionalExtensions.cs" />
     <Compile Include="Excersises5\AccountController.cs" />
     <Compile Include="Excersises5\AccountState.cs" />
     <Compile Include="Excersises5\EnumerableExtensions.cs" />

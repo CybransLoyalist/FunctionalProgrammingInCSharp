@@ -186,7 +186,7 @@ namespace FunctionalProgrammingInCSharpTests
             var bound2 = Right(2).Bind(func1).Bind(func3OptionReturning);
             Assert.AreEqual((Either<string, int>)Right(6), bound2);
 
-            var bound3 = ((Either<string,int>)Right(2)).Bind(func3OptionReturning).Bind(func1);
+            var bound3 = ((Either<string, int>)Right(2)).Bind(func3OptionReturning).Bind(func1);
             Assert.AreEqual((Either<string, int>)Right(6), bound3);
         }
     }

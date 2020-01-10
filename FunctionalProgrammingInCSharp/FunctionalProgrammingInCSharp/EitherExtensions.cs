@@ -38,5 +38,17 @@ namespace FunctionalProgrammingInCSharp
                 l => None,
                 s => Some(s));
         }
+
+        //todo how to do it?
+        //public static Either<LRes,RRes> Apply<L,R,LRes,RRes>(this Either<Func<L,LRes>,Func<R, RRes>> either, Either<L,R> e)
+        //{
+        //    return either.Match(
+        //        lFunc => e.Match(
+        //            el => Left(lFunc(el)),
+        //            er => Right()),
+        //        rFunc => e.Match(
+        //            el => Left(),
+        //            er => Right(rFunc(er))));
+        //}
     }
 }

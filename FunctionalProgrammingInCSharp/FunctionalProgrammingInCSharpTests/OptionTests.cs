@@ -96,6 +96,17 @@ namespace FunctionalProgrammingInCSharpTests
         }
 
         [Test]
+        public void MultiArgumentMap_ShouldWorkProperly()
+        {
+            Option<int> none = None;
+            Option<int> some = Some(5);
+            Func<int, int, int> mapMultiply = (a, b) => a * b;
+ 
+            Assert.AreEqual(None, none.Map(mapMultiply));
+            Assert.AreEqual(15, some.Map(mapMultiply).Match(() => 0, x => x(3)));
+        }
+
+        [Test]
         public void ForEach_ShallExecuteActionForSome()
         {
             Option<int> some = Some(5);
@@ -193,6 +204,30 @@ namespace FunctionalProgrammingInCSharpTests
 
             var bound3 = Some(2).Bind(func3EitherReturning).Bind(func1);
             Assert.AreEqual(Some(6), bound3);
+        }
+
+        [Test]
+        public void RightIdentityLaw()
+        {
+            var some = Some(5);
+            Assert.AreEqual(some, some.Bind(Some));
+        }
+
+        [Test]
+        public void LeftIdentityLaw()
+        {
+            Func<int, Option<int>> bindFunc = i => Some(i * 2);
+            Assert.AreEqual(bindFunc(5), Some(5).Bind(bindFunc));
+        }
+        
+        [Test]
+        public void AssociativityLaw()
+        {
+            Func<int, Option<int>> bindFunc1 = i => Some(i * 2);
+            Func<int, Option<int>> bindFunc2 = i => Some(i + 2);
+            Assert.AreEqual(
+                Some(5).Bind(x => bindFunc1(x).Bind(bindFunc2)), 
+                Some(5).Bind(bindFunc1).Bind(bindFunc2));
         }
     }
 }

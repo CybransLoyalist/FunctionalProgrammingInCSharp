@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using FunctionalProgrammingInCSharp.Excersises6;
+using static FunctionalProgrammingInCSharp.OptionCreators;
 
 namespace FunctionalProgrammingInCSharpTests
 {
@@ -65,6 +66,19 @@ namespace FunctionalProgrammingInCSharpTests
             Func<int, float, string> func = (i, f) => $"int: {i}, float: {f}";
             var applied = func.ApplyR(3.0f);
             Assert.AreEqual("int: 5, float: 3", applied(5));
+        }
+
+        [Test]
+        public void MultiArgumentApplyTests()
+        {
+            Func<int, int, int> multiply = (x, y) => x * y;
+
+            var result = Some(5).Map(multiply).Apply(3);
+            Assert.AreEqual(Some(15), result);
+
+            Assert.AreEqual(Some(200), Some(multiply).Apply(10).Apply(20));
+
+            Assert.AreEqual(None, Some(multiply).Apply(None).Apply(20));
         }
     }
 }

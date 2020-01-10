@@ -83,6 +83,7 @@
     <Compile Include="EitherTests.cs" />
     <Compile Include="EmailTests.cs" />
     <Compile Include="EnumerableExtensionsTests.cs" />
+    <Compile Include="ExceptionalTests.cs" />
     <Compile Include="FuncExtensionsTests.cs" />
     <Compile Include="FunctionalLibraryTests.cs" />
     <Compile Include="LogTests.cs" />

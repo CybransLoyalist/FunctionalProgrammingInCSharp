@@ -4,35 +4,6 @@ using System.Collections.Generic;
 
 namespace FunctionalProgrammingInCSharp
 {
-    public struct Exceptional<T>
-    {
-        private T _value;
-        private bool _isExceptional => _exception != null;
-        private readonly Exception _exception;
-
-        private Exceptional(T value)
-        {
-            _value = value;
-            _exception = null;
-        }
-
-        private Exceptional(Exception ex)
-        {
-            _exception = ex;
-            _value = default(T);
-        }
-
-        public static implicit operator Exceptional<T>(T value)
-        {
-            return new Exceptional<T>(value);
-        }
-
-        public static implicit operator Exceptional<T>(Exception ex)
-        {
-            return new Exceptional<T>(ex);
-        }
-    }
-
     public struct Option<T> : IEquatable<Option.None>, IEquatable<Some<T>>, IEquatable<Option<T>>
     {
         private T _value;
